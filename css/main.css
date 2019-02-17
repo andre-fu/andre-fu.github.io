@@ -1,6 +1,8 @@
-
+.htmlclass{
+    background-color: #dcdcdc;
+}
 .container{
-    background-color: grey;
+    background-color: #dcdcdc;
     min-height: 100%;
     width: 70%;
     font-family: 'Muli', sans-serif;
