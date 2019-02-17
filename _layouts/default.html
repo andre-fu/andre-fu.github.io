@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <head>
+        <title> {{ page.title }}</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
-    <title> {{ page.title }}</title>
 
     <body>
-        <div>
-            {{ content }}
+        <div class="container">
+            <div class="content">
+                {{ content }}
+            </div>
         </div>
     </body>
 </html>
