@@ -1,3 +1,6 @@
+.htmlclass{
+    background-color: darkslategrey;
+}
 .container{
     background-color: grey;
     min-height: 100%;
@@ -32,4 +35,9 @@ nav ul li, footer ul li {
 
 .menu {
     color: #999;
+}
+
+a {
+    text-decoration: none;
+    color: #58C;
 }
