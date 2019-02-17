@@ -34,10 +34,23 @@ nav ul li, footer ul li {
 }
 
 .menu {
-    color: #ffffff;
+    color: black;
 }
 
 a {
     text-decoration: none;
     color: #58C;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 190px;
+    border-top: 1px solid #dcdcdc;
+    font-size: .8em;
 }
