@@ -64,9 +64,8 @@ hr {
 }
 
 .image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
-    position: relative;
-    align-content: center;
-    align-items: center;
-    align-self: center;
 }
