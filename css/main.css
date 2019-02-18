@@ -47,7 +47,6 @@ a:hover {
 }
 
 .footer {
-    width: 100%;
     position: relative;
     bottom: 0;
     height: 190px;
@@ -62,7 +61,7 @@ a:hover {
 }
 
 hr {
-    width: 70%;
+    width: 100%;
     position: absolute;
     align-items: center;
     align-content: center;
