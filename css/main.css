@@ -53,6 +53,9 @@ a:hover {
     height: 190px;
     border-top: 1px solid #dcdcdc;
     font-size: .8em;
+    display: inline-block;
+    padding: 0 15px;
+    
 }
 
 hr {
