@@ -1,8 +1,11 @@
 .htmlclass{
-    background-color: #dcdcdc;
+    /*background-color: #dcdcdc; */
+    background-color: #ffffff;
 }
+
 .container{
-    background-color: #dcdcdc;
+    /*background-color: #dcdcdc; */
+    background-color: #ffffff;
     min-height: 100%;
     width: 70%;
     font-family: 'Muli', sans-serif;
