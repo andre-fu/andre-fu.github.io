@@ -50,7 +50,7 @@ a:hover {
 }
 
 .footer {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     border-top: 1px solid #ffffff;
     font-size: .8em;
