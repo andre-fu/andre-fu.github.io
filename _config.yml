@@ -48,8 +48,8 @@ url: http://www.andrefu.ca
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: "/blog"
-source: _jekyll
-destination: blog
+source: blog
+destination: blog/_site
 
 #
 # !! You don't need to change any of the configuration flags below !!
