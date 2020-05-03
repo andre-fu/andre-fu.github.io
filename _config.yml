@@ -48,8 +48,8 @@ url: http://www.andrefu.ca
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: "/blog"
-# source: blog
-# destination: blog/_site
+source: blog
+destination: blog/_site
 
 #
 # !! You don't need to change any of the configuration flags below !!
@@ -72,7 +72,7 @@ kramdown:
 
 # Set the Sass partials directory, as we're using @imports
 sass:
-  sass_dir: _sass
+  # sass_dir: ./blog/_sass
   style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
@@ -82,8 +82,13 @@ gems:
 
 # Exclude these files from your production _site
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
+  - blog/Gemfile
+  - blog/Gemfile.lock
+  - blog/LICENSE
+  - blog/README.md
+  - blog/CNAME
+  - ./index.html
+  - ./single.html
+  - /old-website
+  - /assets
+
