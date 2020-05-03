@@ -87,5 +87,8 @@ exclude:
   - /blog/LICENSE
   - /blog/README.md
   - /blog/CNAME
-
+  - ./index.html
+  - ./single.html
+  - /old-website
+  - /assets
 
