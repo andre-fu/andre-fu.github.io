@@ -1,0 +1,109 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  position: relative; /* Add this */
+}
+
+@font-face {
+  font-family: 'Akira';
+  src: url('../public/Akira.otf') format('opentype');
+}
+
+.central-hero {
+  font-family: 'Akira', sans-serif;
+  text-align: center;
+  font-size: 100px;
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* font-family: 'Akira', sans-serif; */
+  /* text-align: center; */
+  /* font-size: 100px; */
+}
+
+.central-hero p {
+  line-height: 0;
+  font-size: calc(1.5rem + 3.5vw); /* Adjust these values as needed */
+}
+
+
+
+.text-red {
+  color: red;
+}
+
+.text-outline {
+  color: black;
+  -webkit-text-stroke: 2px white;
+}
+
+body {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh; /* This makes the body take up the full viewport height */
+  margin: 0; /* This removes any default margin */
+  background-color: black;
+  /* padding: 0; */
+}
+
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.bottom-container {
+  width: 100%;
+}
+
+.bottom-links {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 100%;
+  height:  calc(0.1rem + 3.5vw); /* Adjust this value as needed */
+  /* position: fixed; */
+  bottom: 0;
+  font-family: 'Akira', sans-serif;
+  background-color: black;
+  /* padding: 0 20px; */
+  font-size: calc(3.5vw);
+  position: absolute; /* Change fixed to absolute */
+  bottom: 0;
+}
+
+.bottom-links .link {
+  color: red;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bottom-links .link:nth-child(even) {
+  color: white;
+}
+
+.bottom-links .link:hover {
+  transform: translateY(-5px);
+  text-decoration: underline;
+  color: black;
+  -webkit-text-stroke: 1px white;
+}
+
+@media screen and (min-width: 1200px) { /* Adjust this value as needed */
+  .central-hero p {
+    font-size: 100px; /* This will be the maximum font size */
+  }
+  .bottom-links {
+    font-size: 40px;
+  }
+}
