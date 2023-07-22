@@ -7,7 +7,7 @@ const BottomLinks = () => {
       <a href="../../resume.pdf" className="link">RESUME.</a>
       <a href="https://www.linkedin.com/in/andre-fu/" className="link">LINKEDIN.</a>
       <a href="https://github.com/andre-fu/" className="link">GITHUB.</a>
-      <a href="/bookshelf" className="link">BLOG.</a>
+      {/* <a href="/bookshelf" className="link">BLOG.</a> */}
     </div>
   );
 };
