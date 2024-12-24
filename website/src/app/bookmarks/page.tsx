@@ -74,7 +74,7 @@ export default function BookmarksPage() {
   return (
     <ProfileLayout>
       <SidebarCard title="Bookmarks">
-        <p className="text-xs text-[#666]">Andre's favorite books, articles, and videos.</p>
+        <p className="text-xs text-[#666]">Andre&apos;s favorite books, articles, and videos.</p>
         <div className="divide-y divide-[#E9E9E9]">
           {bookmarks.map(({ date, items }) => (
             <div key={date} className="py-3">

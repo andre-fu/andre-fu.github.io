@@ -55,7 +55,7 @@ export default function Page() {
   return (
     <ProfileLayout>
       <SidebarCard title="Wall">
-        <p className="text-xs text-[#666]">Displaying "About Me".</p>
+        <p className="text-xs text-[#666]">Displaying &quot;About Me&quot;.</p>
         <div className="divide-y divide-[#E9E9E9]">
           {feedItems.map(({ date, items }) => (
             <div key={date} className="py-3">

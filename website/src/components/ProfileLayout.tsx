@@ -154,9 +154,9 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                 </div>
                 <button
                   className="flex items-center gap-1 bg-[#3B5998] px-4 py-1 text-white"
-                  onClick={() => {
+                  onClick={(event) => {
                     navigator.clipboard.writeText("andrefu.ca");
-                    const button = event.target as HTMLButtonElement;
+                    const button = event.currentTarget as HTMLButtonElement;
                     button.textContent = "Copied!";
                     setTimeout(() => {
                       button.textContent = "Share";

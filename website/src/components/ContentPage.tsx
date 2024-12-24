@@ -1,5 +1,6 @@
 import React from 'react'
 import SidebarCard from './SidebarCard'
+import Link from 'next/link'
 
 interface ContentPageProps {
   title: string
@@ -14,7 +15,7 @@ export default function ContentPage({ title, subtitle, children }: ContentPagePr
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <div className="text-2xl font-bold">facebook</div>
           <div className="flex gap-4 text-sm">
-            <a href="/" className="hover:underline">home</a>
+            <Link href="/" className="hover:underline">home</Link>
           </div>
         </div>
       </nav>
