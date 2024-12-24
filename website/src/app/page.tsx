@@ -6,37 +6,43 @@ import ProfileLayout from '@/components/ProfileLayout'
 
 const feedItems = [
   {
-    date: 'Today',
+    date: 'Currently',
     items: [
       {
         type: 'event',
-        content: "Andre plans to attend Fetterman's Belated Birthday Bash.",
-        hasShare: true
+        content: "Founder at Ecliptor, building AI agents for the future.",
+        hasShare: false
       },
       {
-        type: 'video',
-        content: "Andre posted a video.",
-        title: "YouTube - A Picture a Day Parody",
-        description: "A parody of all those 'a picture a day' videos you see everywhere :)",
-        comment: "pretty creative video...",
-        thumbnail: "/placeholder.svg?height=96&width=128"
-      }
+        type: 'event',
+        content: "Developer, Engineer, and Designer",
+        hasShare: false
+      },
+      // {
+      //   type: 'video',
+      //   content: "Andre posted a video.",
+      //   title: "YouTube - A Picture a Day Parody",
+      //   description: "A parody of all those 'a picture a day' videos you see everywhere :)",
+      //   comment: "pretty creative video...",
+      //   thumbnail: "/placeholder.svg?height=96&width=128"
+      // }
     ]
   },
   {
-    date: 'Yesterday',
+    date: 'Previously',
     items: [
       {
         type: 'event',
-        content: "Andre plans to attend Facebook Halloween Costume Contest."
+        content: "Joined Twitch as a Machine Learning Engineer, buit Recommender Systems (aka 'the algorithm')"
       },
       {
-        type: 'photo',
-        content: "Andre added new photos.",
-        album: "Autumn '06",
-        count: "25 Photos",
-        thumbnail: "/placeholder.svg?height=100&width=100"
-      }
+        type: 'event',
+        content: "Published work on ML Architectures for Computer Vision, model compression, federated learning"
+      },
+      {
+        type: 'event',
+        content: "Studied Engineering Science at UofT, built a lot of cool projects & made great friends"
+      },
     ]
   }
 ]
@@ -44,8 +50,8 @@ const feedItems = [
 export default function Page() {
   return (
     <ProfileLayout>
-      <SidebarCard title="Mini-Feed" action="See All">
-        <p className="text-xs text-[#666]">Displaying 10 stories.</p>
+      <SidebarCard title="Wall">
+        <p className="text-xs text-[#666]">Displaying "About Me".</p>
         <div className="divide-y divide-[#E9E9E9]">
           {feedItems.map(({ date, items }) => (
             <div key={date} className="py-3">

@@ -3,17 +3,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SidebarCard from './SidebarCard'
 
-const navLinks = ['home', 'search', 'browse', 'invite', 'help', 'logout']
+const navLinks = [
+  { text: 'home', href: '/' },
+//   { text: 'search', href: '/search' },
+//   { text: 'browse', href: '/browse' },
+//   { text: 'invite', href: '/invite' },
+//   { text: 'help', href: '/help' },
+  { text: 'logout', href: '', onClick: () => close() }
+]
 
 const profileLinks = [
-  { text: "View More Photos of Andre (1,211)", href: "/photos" },
-  { text: "Read Notes by Andre (8)", href: "/notes" },
-  { text: "View All Andre's Friends", href: "/friends" },
-  { text: "Send Andre a Message", href: "/messages/new" },
-  { text: "View Message History", href: "/messages" },
-  { text: "Poke Him!", href: "/poke" },
-  { text: "Report this Person", href: "/report" },
-  { text: "Remove from Friends", href: "/remove-friend" }
+  { text: "View More Photos of Andre (1,211)", href: "https://instagram.com/andre.fu", icon: "/icons/photos.png" },
+  { text: "Read Notes by Andre (8)", href: "https://futurepinons.substack.com/", icon: "/icons/page_white_edit.png" },
+  { text: "View Andre's principles", href: "/principles", icon: "/icons/book_addresses.png" },
+  { text: "View Andre's bookmarks", href: "/bookmarks", icon: "/icons/flag_blue.png" },
+  { text: "Poke Him!", href: "/poke", icon: "/icons/emoticon_happy.png" },
+  { text: "Remove from Friends", href: "https://www.youtube.com/watch?v=o4GNepioKxM", icon: "/icons/link_break.png" }
 ]
 
 interface ProfileLayoutProps {
@@ -28,7 +33,14 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
           <div className="text-2xl font-bold">facebook</div>
           <div className="flex gap-4 text-sm">
             {navLinks.map(link => (
-              <a key={link} href="#" className="hover:underline">{link}</a>
+              <a 
+                key={link.text} 
+                href={link.href} 
+                onClick={link.onClick} 
+                className="hover:underline"
+              >
+                {link.text}
+              </a>
             ))}
           </div>
         </div>
@@ -55,9 +67,19 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
 
             <div className="space-y-1 text-sm text-[#3B5998]">
               {profileLinks.map(link => (
-                <Link key={link.text} href={link.href} className="block hover:underline">
-                  {link.text}
-                </Link>
+                <div key={link.text} className="pb-1">
+                  <Link href={link.href} className="flex items-center gap-2 hover:underline">
+                    <Image
+                      src={link.icon}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="h-4 w-4"
+                    />
+                    {link.text}
+                  </Link>
+                  <div className="mt-1 h-px bg-gray-700"></div>
+                </div>
               ))}
             </div>
 
@@ -68,7 +90,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
               </div>
             </SidebarCard>
 
-            <SidebarCard title="Mutual Friends (89)" />
+            {/* <SidebarCard title="Mutual Friends (89)" /> */}
 
             <SidebarCard title="Posted Items">
               <p className="text-sm">1 posted item.</p>
@@ -89,16 +111,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
               </div>
             </SidebarCard>
 
-            <SidebarCard title="Groups" action="See All">
-              <div className="text-sm">
-                <div className="flex items-center justify-between">
-                  <span>30 of 37 groups.</span>
-                </div>
-                <a href="#" className="mt-2 block text-[#3B5998] hover:underline">
-                  Lsjumb • Paloma 01-02
-                </a>
-              </div>
-            </SidebarCard>
+
           </aside>
 
           <div className="w-[70%]">
@@ -111,7 +124,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                     <p>SF/NYC/Toronto</p>
                   </div>
                 </div>
-                <button className="flex items-center gap-1 rounded bg-[#3B5998] px-4 py-1 text-white">
+                <button className="flex items-center gap-1 bg-[#3B5998] px-4 py-1 text-white">
                   Share
                   <span className="ml-1 text-lg">+</span>
                 </button>

@@ -13,6 +13,21 @@ interface FeedItemProps {
   count?: string
 }
 
+const getIconForContent = (content: string, type: string): string => {
+  if (type === 'principle') return '/icons/bell.png'
+  if (type === 'bookmark') {
+    if (content.toLowerCase().includes('video')) return '/icons/control_start.png'
+    if (content.toLowerCase().includes('book')) return '/icons/book_addresses.png'
+    return '/icons/page_white_edit.png'  // for articles
+  }
+  if (content.includes('Ecliptor')) return '/icons/lightbulb.png'
+  if (content.includes('Developer')) return '/icons/script_code.png'
+  if (content.includes('Twitch')) return '/icons/world_go.png'
+  if (content.includes('Published work')) return '/icons/script_code.png'
+  if (content.includes('UofT')) return '/icons/book_addresses.png'
+  return '/icons/bullet_white.png'
+}
+
 export default function FeedItem({
   type,
   content,
@@ -26,9 +41,18 @@ export default function FeedItem({
 }: FeedItemProps) {
   return (
     <div className="flex items-start gap-2">
-      <div className="mt-1 h-4 w-4 bg-[#E7E7E7]" />
+      <Image
+        src={getIconForContent(content, type)}
+        alt="Item icon"
+        width={16}
+        height={16}
+        className="mt-1"
+      />
       <div className="flex-1">
         <p className="text-sm">{content}</p>
+        {type === 'bookmark' && description && (
+          <p className="mt-1 text-xs text-[#666]">{description}</p>
+        )}
         {type === 'video' && (
           <div className="mt-2 flex gap-4">
             <div className="flex-1">
@@ -80,7 +104,7 @@ export default function FeedItem({
         )}
       </div>
       {hasShare && (
-        <button className="flex items-center gap-1 rounded bg-[#3B5998] px-2 py-0.5 text-xs text-white">
+        <button className="flex items-center gap-1 bg-[#3B5998] px-2 py-0.5 text-xs text-white">
           Share
           <span className="text-sm">+</span>
         </button>
