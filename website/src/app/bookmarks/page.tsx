@@ -10,22 +10,22 @@ const bookmarks = [
     items: [
       {
         type: 'bookmark',
-        content: "Zero to One - Peter Thiel",
-        description: "Notes on startups, or how to build the future",
-        hasShare: true
+        content: "Meditations - Marcus Aurelius",
+        description: "George Hays version, lots of quotes to think & live by",
+        url: "https://classics.mit.edu/Antoninus/meditations.html"
       },
-      {
-        type: 'bookmark',
-        content: "Principles - Ray Dalio",
-        description: "Life and work principles from a legendary investor",
-        hasShare: true
-      },
-      {
-        type: 'bookmark',
-        content: "The Beginning of Infinity - David Deutsch",
-        description: "Explanations that transform the world",
-        hasShare: true
-      }
+    //   {
+    //     type: 'bookmark',
+    //     content: "Principles - Ray Dalio",
+    //     description: "Life and work principles from a legendary investor",
+    //     url: "https://www.principles.com/"
+    //   },
+    //   {
+    //     type: 'bookmark',
+    //     content: "The Beginning of Infinity - David Deutsch",
+    //     description: "Explanations that transform the world",
+    //     url: "https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359"
+    //   }
     ]
   },
   {
@@ -33,21 +33,21 @@ const bookmarks = [
     items: [
       {
         type: 'bookmark',
-        content: "How to Get Startup Ideas - Paul Graham",
-        description: "The best startup ideas come from problems you personally experience",
-        hasShare: true
+        content: "How to do Great Work - Paul Graham",
+        description: "What does great work mean & what does it look like",
+        url: "https://www.paulgraham.com/greatwork.html"
       },
       {
         type: 'bookmark',
-        content: "The Bus Ticket Theory of Genius - Paul Graham",
-        description: "Natural ability + obsessive interest = genius",
-        hasShare: true
+        content: "Examples of quickly Accomplishing ambitious goals",
+        description: "Patrick Collison's examples of people who quickly accomplished ambitious goals",
+        url: "https://patrickcollison.com/fast"
       },
       {
         type: 'bookmark',
         content: "What You'll Wish You'd Known - Paul Graham",
         description: "Don't make the mistake of thinking you have to know what you're going to do with your life",
-        hasShare: true
+        url: "http://www.paulgraham.com/hs.html"
       }
     ]
   },
@@ -56,15 +56,15 @@ const bookmarks = [
     items: [
       {
         type: 'bookmark',
-        content: "The Most Important Thing School Never Taught You",
-        description: "Naval on how to think clearly",
-        hasShare: true
+        content: "Steve Job's Secrets of Life",
+        description: "Jobs on how you can influence everything around you",
+        url: "https://www.youtube.com/watch?v=kYfNvmF0Bqw&list=PLfVty60NmULHUZ7opf1js9n4NH2QhEHNB&index=2"
       },
       {
         type: 'bookmark',
-        content: "Inside OpenAI - The Story Behind ChatGPT",
-        description: "60 Minutes special on the development of ChatGPT",
-        hasShare: true
+        content: "Casey Neistat's 'Fat & Lazy'",
+        description: "We all have the same amount of time, but we use it differently",
+        url: "https://www.youtube.com/watch?v=ZexvTZ1sV8U&list=FLxNI1cYVDIZb6dB8_XmGKyQ"
       }
     ]
   }

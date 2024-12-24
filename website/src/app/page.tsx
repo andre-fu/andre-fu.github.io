@@ -33,7 +33,7 @@ const feedItems = [
     items: [
       {
         type: 'event',
-        content: "Joined Twitch as a Machine Learning Engineer, buit Recommender Systems (aka 'the algorithm')"
+        content: "Joined Twitch as a Machine Learning Engineer, buit Recommendation Systems (aka 'the algorithm')"
       },
       {
         type: 'event',
@@ -41,10 +41,14 @@ const feedItems = [
       },
       {
         type: 'event',
+        content: "Worked at Microsoft built knowledge graphs for Bing, launched knowledge panes (right hand panel) "
+      },
+      {
+        type: 'event',
         content: "Studied Engineering Science at UofT, built a lot of cool projects & made great friends"
       },
     ]
-  }
+  },
 ]
 
 export default function Page() {
