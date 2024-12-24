@@ -5,11 +5,7 @@ import SidebarCard from './SidebarCard'
 
 const navLinks = [
   { text: 'home', href: '/' },
-//   { text: 'search', href: '/search' },
-//   { text: 'browse', href: '/browse' },
-//   { text: 'invite', href: '/invite' },
-//   { text: 'help', href: '/help' },
-  { text: 'logout', href: '', onClick: () => close() }
+  { text: 'logout', href: 'https://stackoverflow.com/questions/19761241/window-close-and-self-close-do-not-close-the-window-in-chrome', onClick: () => window.close() }
 ]
 
 const profileLinks = [
