@@ -90,7 +90,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                     className="flex items-center gap-2 hover:underline text-[#3B5998] text-left"
                   >
                     <Image
-                      src="/icons/emoticon_happy.png"
+                      src="/facebook-poke-icon.png"
                       alt=""
                       width={16}
                       height={16}
