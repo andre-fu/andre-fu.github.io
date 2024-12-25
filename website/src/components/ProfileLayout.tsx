@@ -2,18 +2,15 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SidebarCard from './SidebarCard'
-
-const navLinks = [
-  { text: 'home', href: '/' },
-  { text: 'logout', href: 'https://stackoverflow.com/questions/19761241/window-close-and-self-close-do-not-close-the-window-in-chrome', onClick: () => window.close() }
-]
+import Navbar from './Navbar'
+import { supabase } from '@/lib/supabase'
+import { useAuth } from './AuthProvider'
 
 const profileLinks = [
   { text: "View More Photos of Andre ", href: "https://instagram.com/andre.fu", icon: "/icons/photos.png" },
   { text: "Read Notes by Andre", href: "https://futurepinons.substack.com/", icon: "/icons/page_white_edit.png" },
   { text: "View Andre's principles", href: "/principles", icon: "/icons/book_addresses.png" },
   { text: "View Andre's bookmarks", href: "/bookmarks", icon: "/icons/wand.png" },
-  { text: "Poke Him!", href: "/poke", icon: "/icons/emoticon_happy.png" },
   { text: "Remove from Friends", href: "https://www.youtube.com/watch?v=o4GNepioKxM", icon: "/icons/link_break.png" }
 ]
 
@@ -22,25 +19,26 @@ interface ProfileLayoutProps {
 }
 
 export default function ProfileLayout({ children }: ProfileLayoutProps) {
+  const { user } = useAuth()
+
+  const handlePoke = async () => {
+    if (!user) {
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent'
+          }
+        }
+      })
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-[#D8DFEA] font-['Lucida_Grande',Tahoma,Verdana,Arial,sans-serif] [-webkit-font-smoothing:none] [font-smooth:never]">
-      <nav className="bg-[#3B5998] px-4 py-1 text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <div className="text-2xl font-bold">facebook</div>
-          <div className="flex gap-4 text-sm">
-            {navLinks.map(link => (
-              <a 
-                key={link.text} 
-                href={link.href} 
-                onClick={link.onClick} 
-                className="hover:underline"
-              >
-                {link.text}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-[#D8DFEA] font-[Lucida_Grande,Tahoma,Verdana,Arial,sans-serif] [-webkit-font-smoothing:none] [font-smooth:never]">
+      <Navbar />
       
       <main className="mx-auto max-w-6xl px-4 pt-2">
         <header className="mb-2 flex items-center justify-between bg-[#3B5998] px-2 py-1 text-white">
@@ -78,6 +76,35 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                   <div className="mt-1 h-px bg-gray-700"></div>
                 </div>
               ))}
+              <div className="pb-1">
+                {user ? (
+                  <Link href="/poke" className="flex items-center gap-2 hover:underline">
+                    <Image
+                      src="/facebook-poke-icon.png"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="h-4 w-4"
+                    />
+                    Poke Him!
+                  </Link>
+                ) : (
+                  <button
+                    onClick={handlePoke}
+                    className="flex items-center gap-2 hover:underline text-[#3B5998] text-left"
+                  >
+                    <Image
+                      src="/facebook-poke-icon.png"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="h-4 w-4"
+                    />
+                    Poke Him!
+                  </button>
+                )}
+                <div className="mt-1 h-px bg-gray-700"></div>
+              </div>
             </div>
 
             <SidebarCard title="Status">
@@ -111,31 +138,6 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                 </Link>
               </div>
             </SidebarCard>
-
-            {/* <SidebarCard title="Mutual Friends (89)" /> */}
-            
-            {/* 
-            <SidebarCard title="Posted Items">
-              <p className="text-sm">1 posted item.</p>
-              <div className="mt-2 flex items-start gap-2">
-                <Image
-                  src="/placeholder.svg?height=50&width=50"
-                  alt="Video thumbnail"
-                  width={50}
-                  height={50}
-                  className="rounded border border-[#B7B7B7]"
-                />
-                <div>
-                  <a href="#" className="text-sm text-[#3B5998] hover:underline">
-                    Video: YouTube - A Picture a Day Parody
-                  </a>
-                  <p className="text-xs text-gray-500">7:44am Oct 24</p>
-                </div>
-              </div>
-            </SidebarCard> 
-            */}
-
-
           </aside>
 
           <div className="w-[70%]">
@@ -164,7 +166,6 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                 </button>
               </div>
             </div>
-
             {children}
           </div>
         </div>

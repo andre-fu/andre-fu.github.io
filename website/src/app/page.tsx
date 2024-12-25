@@ -3,6 +3,7 @@
 import SidebarCard from '@/components/SidebarCard'
 import FeedItem from '@/components/FeedItem'
 import ProfileLayout from '@/components/ProfileLayout'
+import WallPosts from '@/components/WallPosts'
 
 const feedItems = [
   {
@@ -54,21 +55,28 @@ const feedItems = [
 export default function Page() {
   return (
     <ProfileLayout>
-      <SidebarCard title="Wall">
-        <p className="text-xs text-[#666]">Displaying &quot;About Me&quot;.</p>
-        <div className="divide-y divide-[#E9E9E9]">
-          {feedItems.map(({ date, items }) => (
-            <div key={date} className="py-3">
-              <h4 className="mb-2 text-sm font-bold text-[#666]">{date}</h4>
-              <div className="space-y-4">
-                {items.map((item, index) => (
-                  <FeedItem key={`${date}-${index}`} {...item} />
-                ))}
+      <div className="space-y-4">
+        <SidebarCard title="About Me">
+          <p className="text-xs text-[#666]">Displaying &quot;About Me&quot;.</p>
+          <div className="divide-y divide-[#E9E9E9]">
+            {feedItems.map(({ date, items }) => (
+              <div key={date} className="py-3">
+                <h4 className="mb-2 text-sm font-bold text-[#666]">{date}</h4>
+                <div className="space-y-4">
+                  {items.map((item, index) => (
+                    <FeedItem key={`${date}-${index}`} {...item} />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </SidebarCard>
+            ))}
+          </div>
+        </SidebarCard>
+
+        <SidebarCard title="Wall">
+          <p className="text-xs text-[#666] mb-4">Write something on Andre&apos;s Wall.</p>
+          <WallPosts />
+        </SidebarCard>
+      </div>
     </ProfileLayout>
   )
 }

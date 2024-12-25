@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
 import SidebarCard from './SidebarCard'
+import Navbar from './Navbar'
 
 interface ContentPageProps {
   title: string
@@ -10,17 +10,8 @@ interface ContentPageProps {
 
 export default function ContentPage({ title, subtitle, children }: ContentPageProps) {
   return (
-    <div className="min-h-screen bg-[#D8DFEA] font-['Lucida_Grande',Tahoma,Verdana,Arial,sans-serif] [-webkit-font-smoothing:none] [font-smooth:never]">
-      <nav className="bg-[#3B5998] px-4 py-1 text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <div className="text-2xl font-bold">facebook</div>
-          <div className="flex gap-4 text-sm">
-            <Link href="/" className="hover:underline">
-              home
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-[#D8DFEA] font-[Lucida_Grande,Tahoma,Verdana,Arial,sans-serif] [-webkit-font-smoothing:none] [font-smooth:never]">
+      <Navbar />
       
       <main className="mx-auto max-w-6xl px-4 pt-2">
         <header className="mb-2 flex items-center justify-between bg-[#3B5998] px-2 py-1 text-white">
