@@ -11,6 +11,9 @@ export default function Navbar() {
           <Link href="/" className="hover:underline">
             home
           </Link>
+          <Link href="/future" className="hover:underline">
+            future
+          </Link>
           <AuthButton />
         </div>
       </div>
