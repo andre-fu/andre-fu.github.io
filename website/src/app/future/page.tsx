@@ -5,20 +5,21 @@ import SidebarCard from '@/components/SidebarCard'
 
 const futureItems = [
   {
-    category: "Building",
+    category: "Tools for the future",
     items: [
       {
         title: "AI Agents",
-        description: "Building AI agents that can help humans be more productive and creative. Exploring the intersection of LLMs, planning, and human interaction."
+        description: "Agentic AI enables humans to take a step up the stack and delegate the easy work to AI. Open questions: where will these agents be used? What are the tools they will need, and who will build them?"
       },
       {
-        title: "Human-AI Collaboration",
-        description: "AI  is clearly the future, but it's not evenly distributed. There's $B to be made by bringing it from tip of spear to the masses, and improving millions of lives along the way. "
+        title: "Bringing AI to the long tail",
+        description: "AI  is clearly the future, but it's not evenly distributed. There's $B to be made by bringing it from tip of spear to the masses, and improving millions of lives along the way."
       },
       {
         title: "Developer Tools",
-        description: "Developers/Engineers are a new class of influencers. They used to be needed for 100% of the project, \
-        but now human engineers will be needed for the last 5-10% that's out of distribution. AI can assist in the last 5-10%, but a lot more mental effort needs to be put into the last 5-10%."
+        description: "Developers are a new class of influencers. They used to be needed for an entire project, but AI enabled them to be needed for the last 5-10% of the project.\
+        This is incredibly powerful, because it means devs can focus on the hardest parts of the project that actually push it forward. Enabling devs to do this at scale will 10x\
+        the amount of high quality software that can be built."
       }
     ]
   },
@@ -27,24 +28,12 @@ const futureItems = [
     items: [
       {
         title: "Embodied AI",
-        description: "I think there will come a point when AI will need to interact with the real world. How will AI Agents get you a coffee? "
+        description: "I think there will come a point when AI will need to interact with the real world. How will an AI Agent get you a coffee? "
       },
       {
-        title: "Brain-Computer Interfaces",
-        description: "Following developments in neural interfaces and their potential to transform human-computer interaction."
-      }
-    ]
-  },
-  {
-    category: "Learning",
-    items: [
-      {
-        title: "Cognitive Science",
-        description: "Studying how humans learn, think, and make decisions to inform better AI system design."
-      },
-      {
-        title: "Systems Design",
-        description: "Learning about complex systems, emergence, and how to build robust, scalable architectures."
+        title: "Video Models",
+        description: "Recently Sora & Veo2 launched, and the videos are insane. How will we tell content online? More importantly, how will we use this tech to \
+        make lives better or easier? Like cameras on smartphones 10x the amount of video online, AI video will 10x the amount of content - are there tools to make this easier?"
       }
     ]
   }
@@ -54,7 +43,7 @@ export default function FuturePage() {
   return (
     <ProfileLayout>
       <SidebarCard title="Future">
-        <p className="text-xs text-[#666]">What I&apos;m excited about building.</p>
+        <p className="text-xs text-[#666]">A list of things I think are important to think about and build.</p>
         <div className="divide-y divide-[#3B5998]">
           {futureItems.map(({ category, items }) => (
             <div key={category} className="py-3">

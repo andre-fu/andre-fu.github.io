@@ -41,7 +41,7 @@ export default function PokePage() {
 
   async function handlePoke() {
     if (!user) {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo: `${window.location.origin}/poke`
