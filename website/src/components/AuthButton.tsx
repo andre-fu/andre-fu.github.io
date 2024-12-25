@@ -1,37 +1,30 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
-import { User } from '@supabase/supabase-js'
+import { useAuth } from './AuthProvider'
 
 export default function AuthButton() {
-  const [user, setUser] = useState<User | null>(null)
+  const { user } = useAuth()
 
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
-
-  const handleLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`
-      }
-    })
-  }
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
+  const handleAuth = async () => {
+    if (user) {
+      await supabase.auth.signOut()
+    } else {
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent'
+          }
+        }
+      })
+    }
   }
 
   return (
-    <button
-      onClick={user ? handleLogout : handleLogin}
-      className="text-sm hover:underline"
-    >
-      {user ? 'log out' : 'log in'}
+    <button onClick={handleAuth} className="hover:underline">
+      {user ? 'logout' : 'login'}
     </button>
   )
 } 
